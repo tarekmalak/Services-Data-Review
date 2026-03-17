@@ -36,7 +36,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:#c8d8ec;border-radius:3px}
- 
+
 /* ── HEADER ── */
 .header{background:linear-gradient(135deg,#0a1f3d 0%,#1f6fb2 55%,#2d85d4 100%);padding:24px 40px;color:#fff;position:relative;overflow:hidden}
 .header::before,.header::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,0.04)}
@@ -50,7 +50,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .header-badges{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .hbadge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:500;backdrop-filter:blur(10px)}
 .hbadge.live{background:rgba(22,163,74,0.25);border-color:rgba(22,163,74,0.4)}
- 
+
 /* ── NAV BAR ── */
 .nav-bar{background:#fff;border-bottom:1px solid var(--border);padding:0 40px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
 .nav-bar-inner{max-width:1440px;margin:0 auto;display:flex;align-items:stretch;gap:0;overflow-x:auto;scrollbar-width:none}
@@ -64,7 +64,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .nav-spacer{flex:1;min-width:8px}
 .nav-btn{display:flex;align-items:center;gap:7px;padding:8px 16px;margin:auto 0;background:var(--primary);color:#fff;border-radius:var(--radius-sm);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all var(--transition);border:none;font-family:'IBM Plex Sans',sans-serif}
 .nav-btn:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(31,111,178,0.3)}
- 
+
 /* ── UPLOAD OVERLAY ── */
 .overlay{display:none;position:fixed;inset:0;background:rgba(10,31,61,0.6);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
 .overlay.open{display:flex}
@@ -83,11 +83,11 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .btn-primary:hover{background:var(--primary-dark)}
 .btn-secondary{padding:11px 20px;background:#f3f7fb;color:var(--text-secondary);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-weight:500;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:all var(--transition)}
 .btn-secondary:hover{border-color:var(--primary);color:var(--primary)}
- 
+
 /* ── CONTAINER ── */
 .container{max-width:1440px;margin:0 auto;padding:28px 40px}
 @media(max-width:768px){.container{padding:16px}.header{padding:18px 16px}.nav-bar{padding:0 12px}}
- 
+
 /* ── EMPTY STATE ── */
 .empty-state{padding:80px 20px;text-align:center;color:var(--text-muted)}
 .es-icon{font-size:48px;margin-bottom:16px}
@@ -95,11 +95,11 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .es-sub{font-size:13px;margin-bottom:24px}
 .btn-cta{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:var(--primary);color:#fff;border:none;border-radius:var(--radius-sm);font-size:13px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:all var(--transition)}
 .btn-cta:hover{background:var(--primary-dark);transform:translateY(-1px)}
- 
+
 /* ── SECTION TITLE ── */
 .section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--text-muted);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
- 
+
 /* ── FILE BANNER ── */
 .file-banner{background:#fff;border-radius:var(--radius);padding:16px 22px;box-shadow:var(--card-shadow);border:1px solid var(--border);margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;animation:fadeInUp .3s ease}
 .fb-icon{width:40px;height:40px;background:var(--blue-bg);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
@@ -110,7 +110,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .btn-outline:hover{background:var(--primary);color:#fff}
 .btn-ghost{padding:7px 14px;background:#fff;color:var(--text-secondary);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:12px;font-weight:600;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;transition:all var(--transition);white-space:nowrap}
 .btn-ghost:hover{border-color:var(--primary);color:var(--primary)}
- 
+
 /* ── KPI GRID ── */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
 @media(max-width:1100px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
@@ -126,7 +126,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .kpi-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px}
 .kpi-value{font-size:32px;font-weight:700;color:var(--text-primary);font-family:'IBM Plex Mono',monospace;letter-spacing:-1px;line-height:1;margin-bottom:5px}
 .kpi-sub{font-size:11px;color:var(--text-secondary)}
- 
+
 /* ── CHARTS ── */
 .charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px}
 @media(max-width:900px){.charts-grid{grid-template-columns:1fr}}
@@ -134,7 +134,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .chart-card-title{font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:2px}
 .chart-card-sub{font-size:11px;color:var(--text-muted);margin-bottom:16px}
 .chart-wrap{position:relative;height:230px}
- 
+
 /* ── TABLE CARD ── */
 .table-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--card-shadow);border:1px solid var(--border);overflow:hidden;margin-bottom:20px}
 .tc-header{padding:16px 22px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -145,7 +145,7 @@ body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--tex
 .tc-footer{padding:10px 22px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);display:flex;align-items:center;justify-content:space-between;background:#f8fafd;flex-wrap:wrap;gap:8px}
 .tc-footer .mono{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--text-primary)}
 .table-scroll{overflow-x:auto;max-height:400px;overflow-y:auto}
- 
+
 /* ── TABLE ── */
 table{width:100%;border-collapse:collapse}
 th{padding:9px 14px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);background:#f8fafd;border-bottom:1px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:5}
@@ -160,7 +160,7 @@ tr:hover td{background:#f8fafd}
 .tr-dup td{background:#fffbeb!important}
 .tr-dup:hover td{background:#fef9e0!important}
 .empty-row td{text-align:center;padding:40px;color:var(--text-muted);font-size:12px;cursor:default}
- 
+
 /* ── INPUTS ── */
 .search-wrap{position:relative;flex:1;min-width:180px}
 .s-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:12px;pointer-events:none}
@@ -169,7 +169,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
 .chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:20px;font-size:11px;font-weight:500;background:#fff;color:var(--text-muted);cursor:pointer;transition:all var(--transition);white-space:nowrap}
 .chip:hover{border-color:var(--primary);color:var(--primary)}
 .chip.active{background:var(--primary);border-color:var(--primary);color:#fff;font-weight:600}
- 
+
 /* ── BADGES ── */
 .badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;letter-spacing:.3px}
 .bd{width:5px;height:5px;border-radius:50%;background:currentColor}
@@ -178,7 +178,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
 .b-high{background:var(--red-bg);color:var(--red)}
 .b-info{background:var(--blue-bg);color:var(--primary)}
 .b-type{background:#f0f7ff;color:var(--primary-dark)}
- 
+
 /* ── COMPLETENESS BAR ── */
 .comp-wrap{display:flex;align-items:center;gap:8px}
 .bar-track{flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden;min-width:60px}
@@ -188,7 +188,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
 .bl{background:linear-gradient(90deg,var(--red),#ef4444)}
 .bar-pct{font-size:11px;font-weight:600;font-family:'IBM Plex Mono',monospace;min-width:36px;text-align:right}
 .ph{color:var(--green)}.pm{color:var(--amber)}.pl{color:var(--red)}
- 
+
 /* ── PROFILE GRID ── */
 .profile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:28px}
 .profile-card{background:var(--white);border-radius:var(--radius);padding:18px;box-shadow:var(--card-shadow);border:1px solid var(--border);transition:transform var(--transition),box-shadow var(--transition)}
@@ -201,33 +201,63 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
 .pc-samples{margin-top:10px;border-top:1px solid var(--border);padding-top:8px}
 .psl2{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;font-weight:600;margin-bottom:5px}
 .sample-pill{display:inline-block;padding:2px 8px;margin:2px;background:var(--bg);border:1px solid var(--border);border-radius:6px;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--text-secondary)}
- 
+
 /* ── DUP KPI ROW ── */
 .dup-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
 @media(max-width:600px){.dup-kpis{grid-template-columns:1fr 1fr}}
- 
+
+/* ── DOC TYPE PANEL ── */
+.doc-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.doc-type-grid{grid-template-columns:1fr}}
+.doc-type-card{background:var(--white);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--card-shadow);border:1px solid var(--border);display:flex;align-items:center;gap:20px;transition:transform var(--transition),box-shadow var(--transition)}
+.doc-type-card:hover{transform:translateY(-2px);box-shadow:var(--card-shadow-hover)}
+.doc-type-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.doc-type-icon.original{background:#dbeeff}
+.doc-type-icon.form{background:#dcfce7}
+.doc-type-body{flex:1}
+.doc-type-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:6px}
+.doc-type-value{font-size:36px;font-weight:700;font-family:'IBM Plex Mono',monospace;letter-spacing:-1px;line-height:1;margin-bottom:4px}
+.doc-type-value.original{color:var(--primary)}
+.doc-type-value.form{color:var(--green)}
+.doc-type-sub{font-size:11px;color:var(--text-secondary)}
+.doc-type-bar-wrap{margin-top:14px}
+.doc-type-bar-label{font-size:10px;color:var(--text-muted);margin-bottom:5px;display:flex;justify-content:space-between}
+.doc-type-bar-track{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.doc-type-bar-fill{height:100%;border-radius:4px;transition:width .7s ease}
+.doc-type-bar-fill.original{background:linear-gradient(90deg,var(--primary),var(--primary-light))}
+.doc-type-bar-fill.form{background:linear-gradient(90deg,var(--green),#22c55e)}
+.doc-type-full{background:var(--white);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--card-shadow);border:1px solid var(--border);margin-top:0}
+.doc-type-stacked-bar{height:32px;border-radius:8px;overflow:hidden;display:flex;margin-top:10px}
+.stacked-seg{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;transition:flex .7s ease;white-space:nowrap;overflow:hidden;min-width:0}
+.stacked-seg.original{background:linear-gradient(90deg,var(--primary),var(--primary-light))}
+.stacked-seg.form{background:linear-gradient(90deg,var(--green),#22c55e)}
+.stacked-seg.other{background:linear-gradient(90deg,var(--gray),#9ca3af)}
+.doc-legend{display:flex;gap:18px;margin-top:10px;flex-wrap:wrap}
+.doc-legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-secondary)}
+.doc-legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
 /* ── KEY COL WRAP ── */
 .key-col-wrap{padding:10px 22px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;align-items:center;background:#fafcff}
 .kcl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-right:4px}
- 
+
 /* ── TAB PANES ── */
 .tab-pane{display:none}.tab-pane.active{display:block;animation:fadeInUp .25s ease}
- 
+
 /* ── LOADING ── */
 #loading{display:none;position:fixed;inset:0;background:rgba(10,31,61,0.6);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:14px;backdrop-filter:blur(4px)}
 #loading.show{display:flex}
 .spinner{width:40px;height:40px;border:3px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{font-size:13px;color:rgba(255,255,255,.8);font-family:'IBM Plex Mono',monospace}
- 
+
 /* ── TOAST ── */
 .toast{position:fixed;bottom:24px;right:24px;z-index:2000;padding:12px 20px;border-radius:var(--radius-sm);background:var(--text-primary);color:#fff;font-size:13px;transform:translateY(60px);opacity:0;transition:all .25s;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,.15)}
 .toast.show{transform:translateY(0);opacity:1}
 .toast.success{background:#16a34a}
 .toast.error{background:#dc2626}
- 
+
 @keyframes fadeInUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
- 
+
 /* ── AUTH OVERLAY ── */
 #auth-overlay {
   position: fixed; inset: 0; z-index: 9999;
@@ -302,11 +332,11 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
   display: flex; align-items: center; justify-content: center; gap: 8px;
 }
 .auth-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
- 
+
 </style>
 </head>
 <body>
- 
+
 <!-- HEADER -->
 <div class="header">
   <div class="header-inner">
@@ -323,7 +353,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
     </div>
   </div>
 </div>
- 
+
 <!-- NAV BAR -->
 <div class="nav-bar">
   <div class="nav-bar-inner">
@@ -340,7 +370,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
     </button>
   </div>
 </div>
- 
+
 <!-- LOGIN OVERLAY -->
 <div id="auth-overlay">
   <div class="auth-card">
@@ -363,7 +393,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
     <button class="auth-btn" onclick="handleLogin()">Sign In &rarr;</button>
   </div>
 </div>
- 
+
 <!-- UPLOAD OVERLAY -->
 <div class="overlay" id="overlay">
   <div class="modal">
@@ -381,10 +411,10 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
     </div>
   </div>
 </div>
- 
+
 <!-- CONTAINER -->
 <div class="container" id="container">
- 
+
   <!-- Empty state -->
   <div id="empty-state">
     <div class="empty-state">
@@ -397,10 +427,10 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
       </button>
     </div>
   </div>
- 
+
   <!-- Dashboard -->
   <div id="dashboard" style="display:none">
- 
+
     <!-- File banner -->
     <div class="file-banner">
       <div class="fb-icon">📄</div>
@@ -411,7 +441,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
       <button class="btn-ghost" onclick="openUpload()">↩ New File</button>
       <button class="btn-outline" onclick="exportCurrentTable()">⬇ Export CSV</button>
     </div>
- 
+
     <!-- OVERVIEW TAB -->
     <div class="tab-pane active" id="tab-overview">
       <div class="section-title">Key Metrics</div>
@@ -435,7 +465,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
         </div>
       </div>
     </div>
- 
+
     <!-- MISSING TAB -->
     <div class="tab-pane" id="tab-missing">
       <div class="table-card">
@@ -452,11 +482,15 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
         <div class="tc-footer"><span>Showing <span class="mono" id="miss-showing">0</span> columns</span></div>
       </div>
     </div>
- 
+
     <!-- DUPLICATES TAB -->
     <div class="tab-pane" id="tab-duplicates">
       <div class="section-title">Duplicate Summary</div>
       <div class="dup-kpis" id="dup-kpis"></div>
+
+      <!-- Doc type breakdown -->
+      <div class="section-title">Document Type Breakdown <span style="font-size:10px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--text-muted)">— based on Column L</span></div>
+      <div id="doc-type-panel" style="margin-bottom:24px"></div>
       <div class="table-card">
         <div class="tc-header">
           <div class="tc-title">Duplicate Rows — matched on Column F <span class="tc-badge" id="dup-badge">0 rows</span></div>
@@ -474,7 +508,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
         <div class="table-scroll"><table id="tbl-likely-dup"><thead><tr></tr></thead><tbody></tbody></table></div>
       </div>
     </div>
- 
+
     <!-- QUALITY TAB -->
     <div class="tab-pane" id="tab-quality">
       <div class="table-card">
@@ -493,7 +527,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
         <div class="tc-footer"><span>Showing <span class="mono" id="qual-showing">0</span> issues</span></div>
       </div>
     </div>
- 
+
     <!-- PROFILE TAB -->
     <div class="tab-pane" id="tab-profile">
       <div class="table-card" style="margin-bottom:16px">
@@ -503,7 +537,7 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
       </div>
       <div class="profile-grid" id="profile-grid"></div>
     </div>
- 
+
     <!-- RAW DATA TAB -->
     <div class="tab-pane" id="tab-rawdata">
       <div class="table-card">
@@ -521,13 +555,13 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
         <div class="tc-footer"><span>Showing <span class="mono" id="raw-showing">0</span> rows</span></div>
       </div>
     </div>
- 
+
   </div><!-- /dashboard -->
 </div><!-- /container -->
- 
+
 <div id="loading"><div class="spinner"></div><div class="loading-text" id="loading-text">Parsing workbook…</div></div>
 <div class="toast" id="toast"></div>
- 
+
 <script>
 // ─────────────────────────────────────────────────────────
 // STATE
@@ -541,7 +575,7 @@ let G={
   sheetName:'',charts:{}
 };
 let currentExportTable='tbl-raw';
- 
+
 // ─────────────────────────────────────────────────────────
 // HELPERS
 // ─────────────────────────────────────────────────────────
@@ -557,7 +591,7 @@ const inferType=vals=>{
 };
 const sevBadge=s=>{const m={high:'b-high',medium:'b-medium',low:'b-low',info:'b-info'};return`<span class="badge ${m[s]||'b-info'}"><span class="bd"></span>${s}</span>`;};
 const compBar=pct=>{const cl=pct>=95?'bh':pct>=80?'bm':'bl',tc=pct>=95?'ph':pct>=80?'pm':'pl';return`<div class="comp-wrap"><div class="bar-track"><div class="bar-fill ${cl}" style="width:${Math.min(pct,100)}%"></div></div><span class="bar-pct ${tc}">${(+pct).toFixed(1)}%</span></div>`;};
- 
+
 // ─────────────────────────────────────────────────────────
 // PARSE & ANALYSE
 // ─────────────────────────────────────────────────────────
@@ -644,7 +678,7 @@ function detectQualityIssues(rows,headers,types,missing){
   }
   return issues.sort((a,b)=>({high:0,medium:1,low:2}[a.severity]-{high:0,medium:1,low:2}[b.severity]));
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // RENDER KPIs
 // ─────────────────────────────────────────────────────────
@@ -672,7 +706,7 @@ function renderKPIs(){
   document.getElementById('dup-badge').textContent=`${di.size} rows · col F: "${G.colF?G.colF.slice(0,18):''}"`;
   document.getElementById('raw-badge').textContent=`${fmtN(r.length)} rows`;
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // RENDER CHARTS
 // ─────────────────────────────────────────────────────────
@@ -690,7 +724,7 @@ function renderCharts(){
   if(G.charts.issues)G.charts.issues.destroy();
   G.charts.issues=new Chart(document.getElementById('chart-issues'),{type:'bar',data:{labels:st.map(([k])=>k),datasets:[{label:'Count',data:st.map(([,v])=>v),backgroundColor:'rgba(31,111,178,.65)',borderRadius:4}]},options:{indexAxis:'y',...CO,scales:{x:{...CO.scales.x},y:{...CO.scales.y,grid:{display:false}}}}});
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // TABLE BUILDER
 // ─────────────────────────────────────────────────────────
@@ -707,7 +741,7 @@ function sortTable(id,ci){
   const cur=G.sortState[id]||{};G.sortState[id]={col:ci,dir:cur.col===ci&&cur.dir==='asc'?'desc':'asc'};
   ({tbl_missing:renderMissingTable,'tbl-missing':renderMissingTable,'tbl-dup':renderDupTable,'tbl-quality':renderQualityTable,'tbl-raw':renderRawTable,'tbl-likely-dup':renderLikelyDupTable})[id]?.();
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // MISSING TABLE
 // ─────────────────────────────────────────────────────────
@@ -724,7 +758,7 @@ function setMissingFilter(f){
   document.getElementById('chip-has-miss').className='chip'+(f==='missing'?' active':'');
   renderMissingTable();
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // DUPLICATES
 // ─────────────────────────────────────────────────────────
@@ -735,6 +769,70 @@ function renderDupKPIs(){
     {l:'Duplicate Groups',v:G.dupGroups.length,s:`Sets sharing the same ${colFLabel} value`,c:G.dupGroups.length?'c-amber':'c-green'},
     {l:'Unique Rows',v:G.rawRows.length-G.dupRowIndexes.size,s:'Distinct by Column F value',c:'c-blue'},
   ].map(k=>`<div class="kpi-card ${k.c}"><div class="kpi-label">${k.l}</div><div class="kpi-value">${k.v}</div><div class="kpi-sub">${k.s}</div></div>`).join('');
+}
+function renderDocTypePanel(){
+  const panel=document.getElementById('doc-type-panel');
+  const rows=G.rawRows, headers=G.headers;
+  // Column L = index 11
+  const colL=headers[11]||null;
+  if(!colL){
+    panel.innerHTML=`<p style="color:var(--text-muted);font-size:12px;font-family:'IBM Plex Mono',monospace;padding:8px 0">Column L not found in this sheet.</p>`;
+    return;
+  }
+  const total=rows.length;
+  let forms=0, originals=0, other=0;
+  rows.forEach(r=>{
+    const val=String(r[colL]??'').toLowerCase().trim();
+    if(val.includes('form')) forms++;
+    else if(val==='') other++;
+    else originals++;
+  });
+  const formPct=total?(forms/total*100).toFixed(1):0;
+  const origPct=total?(originals/total*100).toFixed(1):0;
+  const otherPct=total?(other/total*100).toFixed(1):0;
+  const origFlex=+origPct||0, formFlex=+formPct||0, otherFlex=+otherPct||0;
+
+  panel.innerHTML=`
+    <div class="doc-type-grid">
+      <div class="doc-type-card">
+        <div class="doc-type-icon original">📄</div>
+        <div class="doc-type-body">
+          <div class="doc-type-label">Original Documents</div>
+          <div class="doc-type-value original">${fmtN(originals)}</div>
+          <div class="doc-type-sub">Rows where Column L does not contain "form"</div>
+          <div class="doc-type-bar-wrap">
+            <div class="doc-type-bar-label"><span>Share of total</span><span>${origPct}%</span></div>
+            <div class="doc-type-bar-track"><div class="doc-type-bar-fill original" style="width:${origPct}%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="doc-type-card">
+        <div class="doc-type-icon form">📋</div>
+        <div class="doc-type-body">
+          <div class="doc-type-label">Forms</div>
+          <div class="doc-type-value form">${fmtN(forms)}</div>
+          <div class="doc-type-sub">Rows where Column L contains "form"</div>
+          <div class="doc-type-bar-wrap">
+            <div class="doc-type-bar-label"><span>Share of total</span><span>${formPct}%</span></div>
+            <div class="doc-type-bar-track"><div class="doc-type-bar-fill form" style="width:${formPct}%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="doc-type-full" style="margin-top:14px">
+      <div style="font-size:12px;font-weight:600;color:var(--text-primary);margin-bottom:2px">All Rows — Document Type Distribution</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px">Column L: <strong>${esc(colL)}</strong> · ${fmtN(total)} total rows</div>
+      <div class="doc-type-stacked-bar">
+        <div class="stacked-seg original" style="flex:${origFlex}" title="Originals: ${originals}">${origFlex>8?originals+' originals':''}</div>
+        <div class="stacked-seg form" style="flex:${formFlex}" title="Forms: ${forms}">${formFlex>8?forms+' forms':''}</div>
+        ${otherFlex>0?`<div class="stacked-seg other" style="flex:${otherFlex}" title="Blank/other: ${other}">${otherFlex>5?other+' blank':''}</div>`:''}
+      </div>
+      <div class="doc-legend">
+        <div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--primary)"></div>Original docs (${originals} · ${origPct}%)</div>
+        <div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--green)"></div>Forms (${forms} · ${formPct}%)</div>
+        ${other>0?`<div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--gray)"></div>Blank / unclassified (${other} · ${otherPct}%)</div>`:''}
+      </div>
+    </div>`;
 }
 function renderDupTable(){
   const q=document.getElementById('search-dup').value.toLowerCase();
@@ -756,7 +854,7 @@ function renderLikelyDupTable(){
   const rows=detectLikelyDups(G.rawRows,G.keyColumns);
   buildTable('tbl-likely-dup',['Row #',...G.headers],rows,r=>[`<span class="td-mono">${r.__ri}</span>`,...G.headers.map(h=>isMiss(r[h])?'<span class="td-miss">—</span>':esc(r[h]))]);
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // QUALITY TABLE
 // ─────────────────────────────────────────────────────────
@@ -771,7 +869,7 @@ function setQualFilter(f){
   G.qualFilter=f;['all','high','medium','low'].forEach(s=>{const el=document.getElementById('chip-sev-'+s);if(el)el.className='chip'+(f===s?' active':'');});
   renderQualityTable();
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // PROFILE GRID
 // ─────────────────────────────────────────────────────────
@@ -796,7 +894,7 @@ function renderProfileGrid(){
     <div class="pc-samples"><div class="psl2">Sample values</div>${p.samples.slice(0,5).map(s=>`<span class="sample-pill">${esc(String(s).slice(0,30))}</span>`).join('')}</div>
   </div>`).join('');
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // RAW TABLE
 // ─────────────────────────────────────────────────────────
@@ -813,7 +911,7 @@ function setRawFilter(f){
   G.rawFilter=f;['all','missing','dup'].forEach(s=>{const el=document.getElementById('chip-raw-'+s);if(el)el.className='chip'+(f===s?' active':'');});
   renderRawTable();
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // CSV EXPORT
 // ─────────────────────────────────────────────────────────
@@ -824,7 +922,7 @@ function exportTableToCSV(id,fn){
   showToast('Exported '+fn,'success');
 }
 function exportCurrentTable(){exportTableToCSV(currentExportTable,'export.csv');}
- 
+
 // ─────────────────────────────────────────────────────────
 // TABS
 // ─────────────────────────────────────────────────────────
@@ -838,7 +936,7 @@ document.querySelectorAll('.nav-tab[data-tab]').forEach(t=>{
     if(t.dataset.tab==='rawdata')renderRawTable();
   });
 });
- 
+
 // ─────────────────────────────────────────────────────────
 // UPLOAD MODAL
 // ─────────────────────────────────────────────────────────
@@ -851,7 +949,7 @@ dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over')
 dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');processFile(e.dataTransfer.files[0]);});
 fileInput.addEventListener('change',e=>{if(e.target.files[0])processFile(e.target.files[0]);});
 document.getElementById('overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeUpload();});
- 
+
 // ─────────────────────────────────────────────────────────
 // MAIN PROCESS
 // ─────────────────────────────────────────────────────────
@@ -879,7 +977,7 @@ function processFile(file){
         document.getElementById('hdr-file').textContent=file.name;
         document.getElementById('hdr-rows').textContent=`${fmtN(rows.length)} rows`;
         document.getElementById('hdr-rows').style.display='';
-        renderKPIs();renderCharts();renderMissingTable();renderDupKPIs();renderDupTable();
+        renderKPIs();renderCharts();renderMissingTable();renderDupKPIs();renderDocTypePanel();renderDupTable();
         // pre-select column F for the likely-duplicates matcher
         G.keyColumns=new Set(G.colF?[G.colF]:[]);
         buildKeyColToolbar();renderLikelyDupTable();renderQualityTable();renderProfileGrid();
@@ -893,14 +991,14 @@ function processFile(file){
   };
   reader.readAsArrayBuffer(file);
 }
- 
+
 // ─────────────────────────────────────────────────────────
 // AUTH
 // ─────────────────────────────────────────────────────────
 const SESSION_KEY='omsar_session';
 function getSession(){try{return JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null');}catch{return null;}}
 function saveSession(){sessionStorage.setItem(SESSION_KEY,JSON.stringify({loggedIn:true}));}
- 
+
 function handleLogin(){
   const u=document.getElementById('login-username').value.trim();
   const p=document.getElementById('login-password').value;
@@ -916,15 +1014,15 @@ function handleLogin(){
     document.getElementById('login-password').value='';
   }
 }
- 
+
 // submit on Enter key
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'&&document.getElementById('auth-overlay').style.display!=='none') handleLogin();
 });
- 
+
 // check existing session on load
 (function(){if(getSession())document.getElementById('auth-overlay').style.display='none';})();
- 
+
 function showLoading(m){setLoadTxt(m);document.getElementById('loading').classList.add('show');}
 function setLoadTxt(m){document.getElementById('loading-text').textContent=m;}
 function hideLoading(){document.getElementById('loading').classList.remove('show');}
