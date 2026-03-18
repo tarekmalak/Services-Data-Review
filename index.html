@@ -203,12 +203,13 @@ input[type=text]:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(31,
 .sample-pill{display:inline-block;padding:2px 8px;margin:2px;background:var(--bg);border:1px solid var(--border);border-radius:6px;font-size:11px;font-family:'IBM Plex Mono',monospace;color:var(--text-secondary)}
 
 /* ── DUP KPI ROW ── */
-.dup-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px}
+.dup-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px}
 @media(max-width:600px){.dup-kpis{grid-template-columns:1fr 1fr}}
 
 /* ── DOC TYPE PANEL ── */
-.doc-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:700px){.doc-type-grid{grid-template-columns:1fr}}
+.doc-type-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+@media(max-width:900px){.doc-type-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.doc-type-grid{grid-template-columns:1fr}}
 .doc-type-card{background:var(--white);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--card-shadow);border:1px solid var(--border);display:flex;align-items:center;gap:20px;transition:transform var(--transition),box-shadow var(--transition)}
 .doc-type-card:hover{transform:translateY(-2px);box-shadow:var(--card-shadow-hover)}
 .doc-type-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
@@ -767,70 +768,124 @@ function renderDupKPIs(){
   document.getElementById('dup-kpis').innerHTML=[
     {l:'Duplicate Rows',v:G.dupRowIndexes.size,s:`Based on ${colFLabel}`,c:G.dupRowIndexes.size?'c-red':'c-green'},
     {l:'Duplicate Groups',v:G.dupGroups.length,s:`Sets sharing the same ${colFLabel} value`,c:G.dupGroups.length?'c-amber':'c-green'},
-    {l:'Unique Rows',v:G.rawRows.length-G.dupRowIndexes.size,s:'Distinct by Column F value',c:'c-blue'},
   ].map(k=>`<div class="kpi-card ${k.c}"><div class="kpi-label">${k.l}</div><div class="kpi-value">${k.v}</div><div class="kpi-sub">${k.s}</div></div>`).join('');
 }
 function renderDocTypePanel(){
   const panel=document.getElementById('doc-type-panel');
   const rows=G.rawRows, headers=G.headers;
-  // Column L = index 11
   const colL=headers[11]||null;
   if(!colL){
     panel.innerHTML=`<p style="color:var(--text-muted);font-size:12px;font-family:'IBM Plex Mono',monospace;padding:8px 0">Column L not found in this sheet.</p>`;
     return;
   }
   const total=rows.length;
-  let forms=0, originals=0, other=0;
+  let forms=0, originals=0, indexes=0, other=0;
   rows.forEach(r=>{
     const val=String(r[colL]??'').toLowerCase().trim();
     if(val.includes('form')) forms++;
+    else if(val.includes('index')) indexes++;
     else if(val==='') other++;
     else originals++;
   });
-  const formPct=total?(forms/total*100).toFixed(1):0;
-  const origPct=total?(originals/total*100).toFixed(1):0;
-  const otherPct=total?(other/total*100).toFixed(1):0;
-  const origFlex=+origPct||0, formFlex=+formPct||0, otherFlex=+otherPct||0;
+
+  // Sub-breakdown for Original Documents:
+  // X (originals that have forms) = unique rows - indexes
+  // Y (originals with no forms)   = originals - X
+  const uniqueRows = G.rawRows.length - G.dupRowIndexes.size;
+  const origWithForms = Math.max(0, uniqueRows - indexes);
+  const origNoForms   = Math.max(0, originals - origWithForms);
+
+  const formPct  = total?(forms/total*100).toFixed(1):0;
+  const origPct  = total?(originals/total*100).toFixed(1):0;
+  const indexPct = total?(indexes/total*100).toFixed(1):0;
 
   panel.innerHTML=`
-    <div class="doc-type-grid">
-      <div class="doc-type-card">
-        <div class="doc-type-icon original">📄</div>
-        <div class="doc-type-body">
-          <div class="doc-type-label">Original Documents</div>
-          <div class="doc-type-value original">${fmtN(originals)}</div>
-          <div class="doc-type-sub">Rows where Column L does not contain "form"</div>
-          <div class="doc-type-bar-wrap">
-            <div class="doc-type-bar-label"><span>Share of total</span><span>${origPct}%</span></div>
-            <div class="doc-type-bar-track"><div class="doc-type-bar-fill original" style="width:${origPct}%"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:14px">
+
+      <!-- Original Documents -->
+      <div class="doc-type-card" style="flex-direction:column;align-items:flex-start;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="doc-type-icon original">📄</div>
+          <div>
+            <div class="doc-type-label">Original Documents</div>
+            <div class="doc-type-value original">${fmtN(originals)}</div>
+          </div>
+        </div>
+        <div class="doc-type-bar-wrap" style="width:100%">
+          <div class="doc-type-bar-label"><span>Share of total</span><span>${origPct}%</span></div>
+          <div class="doc-type-bar-track"><div class="doc-type-bar-fill original" style="width:${origPct}%"></div></div>
+        </div>
+        <div style="width:100%;border-top:1px solid var(--border);padding-top:10px;display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:11px;color:var(--text-secondary);display:flex;align-items:center;gap:5px">
+              <span style="width:8px;height:8px;border-radius:2px;background:var(--green);display:inline-block"></span>
+              Have associated forms
+            </span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--green)">${fmtN(origWithForms)}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:11px;color:var(--text-secondary);display:flex;align-items:center;gap:5px">
+              <span style="width:8px;height:8px;border-radius:2px;background:var(--amber);display:inline-block"></span>
+              No associated forms
+            </span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--amber)">${fmtN(origNoForms)}</span>
           </div>
         </div>
       </div>
-      <div class="doc-type-card">
-        <div class="doc-type-icon form">📋</div>
-        <div class="doc-type-body">
-          <div class="doc-type-label">Forms</div>
-          <div class="doc-type-value form">${fmtN(forms)}</div>
-          <div class="doc-type-sub">Rows where Column L contains "form"</div>
-          <div class="doc-type-bar-wrap">
-            <div class="doc-type-bar-label"><span>Share of total</span><span>${formPct}%</span></div>
-            <div class="doc-type-bar-track"><div class="doc-type-bar-fill form" style="width:${formPct}%"></div></div>
+
+      <!-- Forms -->
+      <div class="doc-type-card" style="flex-direction:column;align-items:flex-start;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="doc-type-icon form">📋</div>
+          <div>
+            <div class="doc-type-label">Forms</div>
+            <div class="doc-type-value form">${fmtN(forms)}</div>
           </div>
         </div>
+        <div class="doc-type-bar-wrap" style="width:100%">
+          <div class="doc-type-bar-label"><span>Share of total</span><span>${formPct}%</span></div>
+          <div class="doc-type-bar-track"><div class="doc-type-bar-fill form" style="width:${formPct}%"></div></div>
+        </div>
+        <div style="width:100%;border-top:1px solid var(--border);padding-top:10px">
+          <div style="font-size:11px;color:var(--text-muted)">Rows where Column L contains <strong>"form"</strong></div>
+        </div>
       </div>
+
+      <!-- Index -->
+      <div class="doc-type-card" style="flex-direction:column;align-items:flex-start;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="doc-type-icon" style="background:#ede9fe">🗂️</div>
+          <div>
+            <div class="doc-type-label">Index</div>
+            <div class="doc-type-value" style="color:var(--purple)">${fmtN(indexes)}</div>
+          </div>
+        </div>
+        <div class="doc-type-bar-wrap" style="width:100%">
+          <div class="doc-type-bar-label"><span>Share of total</span><span>${indexPct}%</span></div>
+          <div class="doc-type-bar-track"><div class="doc-type-bar-fill" style="width:${indexPct}%;background:linear-gradient(90deg,var(--purple),#a855f7)"></div></div>
+        </div>
+        <div style="width:100%;border-top:1px solid var(--border);padding-top:10px">
+          <div style="font-size:11px;color:var(--text-muted)">Rows where Column L contains <strong>"index"</strong></div>
+        </div>
+      </div>
+
     </div>
-    <div class="doc-type-full" style="margin-top:14px">
+
+    <!-- Stacked bar -->
+    <div class="doc-type-full">
       <div style="font-size:12px;font-weight:600;color:var(--text-primary);margin-bottom:2px">All Rows — Document Type Distribution</div>
       <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px">Column L: <strong>${esc(colL)}</strong> · ${fmtN(total)} total rows</div>
       <div class="doc-type-stacked-bar">
-        <div class="stacked-seg original" style="flex:${origFlex}" title="Originals: ${originals}">${origFlex>8?originals+' originals':''}</div>
-        <div class="stacked-seg form" style="flex:${formFlex}" title="Forms: ${forms}">${formFlex>8?forms+' forms':''}</div>
-        ${otherFlex>0?`<div class="stacked-seg other" style="flex:${otherFlex}" title="Blank/other: ${other}">${otherFlex>5?other+' blank':''}</div>`:''}
+        <div class="stacked-seg original" style="flex:${+origPct||0}" title="Originals: ${originals}">${+origPct>8?originals+' originals':''}</div>
+        <div class="stacked-seg form"     style="flex:${+formPct||0}"  title="Forms: ${forms}">${+formPct>8?forms+' forms':''}</div>
+        <div class="stacked-seg" style="flex:${+indexPct||0};background:linear-gradient(90deg,var(--purple),#a855f7)" title="Index: ${indexes}">${+indexPct>8?indexes+' index':''}</div>
+        ${other>0?`<div class="stacked-seg other" style="flex:${+(other/total*100).toFixed(1)||0}" title="Blank: ${other}"></div>`:''}
       </div>
       <div class="doc-legend">
         <div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--primary)"></div>Original docs (${originals} · ${origPct}%)</div>
         <div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--green)"></div>Forms (${forms} · ${formPct}%)</div>
-        ${other>0?`<div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--gray)"></div>Blank / unclassified (${other} · ${otherPct}%)</div>`:''}
+        <div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--purple)"></div>Index (${indexes} · ${indexPct}%)</div>
+        ${other>0?`<div class="doc-legend-item"><div class="doc-legend-dot" style="background:var(--gray)"></div>Blank / unclassified (${other})</div>`:''}
       </div>
     </div>`;
 }
